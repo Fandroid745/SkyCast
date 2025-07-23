@@ -2,10 +2,14 @@ package com.example.skycast
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,9 +26,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         Log.d("API_KEY_CHECK", "API key used: ${BuildConfig.WEATHER_API_KEY}")
         setContent {
+             Surface (modifier=Modifier.fillMaxSize(),
+                 color=MaterialTheme.colorScheme.background
+             ) {
             SkyCastTheme {
                 val navController = rememberNavController()
                 NavGraph(navController = navController)
+            }
             }
         }
     }
