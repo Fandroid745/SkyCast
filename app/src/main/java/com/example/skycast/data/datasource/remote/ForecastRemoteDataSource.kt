@@ -8,8 +8,8 @@ class ForecastRemoteDataSource @Inject constructor(
     private val api:WeatherApi
 )
 {
-    suspend fun getForecast(city:String): ForecastDto {
-            return api.getForecast(city)
+    suspend fun getForecast(lat:Double,lon:Double): ForecastDto {
+            return api.getForecast(lat,lon)
 
     }
 }

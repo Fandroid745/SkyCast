@@ -7,3 +7,4 @@ sealed class HomeForecastState {
     data class Success(val forecast: Forecast):HomeForecastState()
     data class Error(val message:String):HomeForecastState()
 }
+

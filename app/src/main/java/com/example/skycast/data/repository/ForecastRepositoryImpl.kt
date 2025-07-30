@@ -12,9 +12,9 @@ class ForecastRepositoryImpl @Inject constructor(
     private val mapper: ForecastDtoMapper
 ) : ForecastRepository {
 
-    override suspend fun getForecast(city: String): Resource<Forecast> {
+    override suspend fun getForecast(lat: Double, lon: Double): Resource<Forecast> {
         return try {
-            val dto = remoteDataSource.getForecast(city)
+            val dto = remoteDataSource.getForecast(lat, lon)
             val forecast = mapper.mapFromDto(dto)
             Resource.Success(forecast)
         } catch (e: Exception) {
